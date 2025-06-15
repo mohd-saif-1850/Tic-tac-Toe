@@ -7,6 +7,7 @@ let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector("#reset");
 
 let result= document.querySelector(".result");
+let resultText = document.querySelector(".result-text");
 let winner = document.querySelector(".winner");
 let playAgain = document.querySelector("#playAgain");
 
@@ -38,8 +39,13 @@ function checkWinner() {
             start.style.display = "none";
             result.style.display = "flex";
             winner.innerText = `${a}`;
-            
-
+        }
+        else if (Array.from(boxes).every(box => box.innerText !== "")) {
+            container.style.display = "none";
+            result.style.display = "block";
+            start.style.display = "none";
+            result.style.display = "flex";
+            resultText.innerText = "It's a Draw!";
         }
         
         
